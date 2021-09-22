@@ -1,0 +1,1 @@
+web: gunicorn prj_escolar.wsgi

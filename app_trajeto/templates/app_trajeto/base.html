@@ -1,0 +1,96 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Trajetos do Transporte Escolar</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'app_trajeto/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'app_trajeto/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="indigo" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'inicial' %}" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+       
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+      
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="#"><span class="material-icons">apartment</span>Avalie-nos</a></li>
+
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="#"><span class="material-icons">apartment</span>Avalie-nos</a></li>
+
+      </ul>
+
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<!--
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Starter Template</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  -->
+  <div class="row">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Web Transpolar</h5>
+          <p class="grey-text text-lighten-4">Aqui você se sente encontrado!</p>
+        </div>
+      
+        <div class="col l3 s12">
+          <h5 class="white-text">Conecte-se!</h5>
+          <ul>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright teal">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'app_trajeto/js/materialize.js' %}"></script>
+  <script src="{% static 'app_trajeto/js/init.js' %}"></script>
+
+  </body>
+</html>
