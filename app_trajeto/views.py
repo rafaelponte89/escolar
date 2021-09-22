@@ -1,4 +1,4 @@
-from app_trajeto.models import Sugestao
+from app_trajeto.models import Trajeto
 from django.shortcuts import render, redirect
 from . forms import Contato
 # Create your views here.
@@ -11,8 +11,14 @@ def quem_somos(request):
     return render(request, "app_trajeto/quemsomos.html")
 
 def trajetos(request): 
-    return render(request, "app_trajeto/trajetos.html")
-
+    trajetos = Trajeto.objects.all()
+    
+    busca = request.GET.get('search')
+    
+    if busca:
+        trajetos = Trajeto.objects.filter(bairro__nome__contains = busca)
+    return render(request, "app_trajeto/trajetos.html",{"trajetos":trajetos})
+    
 def fale_conosco(request):
     return render(request, "app_trajeto/faleconosco.html")
 
@@ -26,7 +32,7 @@ def salvar_sugestao(request):
         form = Contato(request.POST)
     return render(request, "app_trajeto/contato.html", {"form": form})
 
-
+    
 
 
 

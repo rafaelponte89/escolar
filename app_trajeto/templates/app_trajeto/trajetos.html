@@ -1,16 +1,43 @@
 {% extends 'app_trajeto/base.html' %}
 
 {% block content %}
-    <form class="col s12">
+
+    <form method="GET" class="col s12" >
       <div class="row">
         <div class="input-field col s6">
-          <button class="btn waves-effect waves-yellow btn-small indigo" type="submit" name="search">Pesquisar
+          <button class="btn waves-effect waves-yellow btn-small indigo" type="submit">Pesquisar
              <i class="material-icons right">search</i>
           </button>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Pesquise</label>
+          <input id="search" type="text" name="search" class="validate">
+          <label for="search">Pesquise</label>
         </div>
       </div>
       
     </form>
+    <table class="highlight centered indigo">
+        <thead>
+          <tr>
+              <th>Bairro</th>
+              <th>Período</th>
+              <th>Horário</th>
+          </tr>
+        </thead>
+      
+    {% for trajeto in trajetos %}
+        <tbody class="teal">
+          <tr>
+            <td >{{ trajeto.bairro }}</td>
+            <td >{% if trajeto.saida_garagem == 'M' %} {{ 'MANHÃ' }} 
+                 {% elif trajeto.saida_garagem == 'T' %} {{ 'TARDE' }}
+                 {% elif trajeto.saida_garagem == 'N' %} {{ 'NOITE' }}
+                 {% endif %} </td>
+            <td > 
+                 {% if trajeto.saida_garagem == 'M' %} {{ '06:30' }} 
+                 {% elif trajeto.saida_garagem == 'T' %} {{ '12:00' }}
+                 {% elif trajeto.saida_garagem == 'N' %} {{ '18:30' }}
+                 {% endif %} </td>
+          </tr>
+        </tbody>
+    {% endfor %}
+    </table>
 {% endblock content%}
