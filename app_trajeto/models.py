@@ -28,6 +28,8 @@ class Trajeto(models.Model):
         ('T', (str)('12:00')),
         ('N', (str)('18:30')),
     )
+    
+    
     bairro = models.ForeignKey(Bairro, on_delete = models.CASCADE)
     veiculo = models.ForeignKey(Veiculo, on_delete = models.CASCADE)
     saida_garagem = models.CharField(max_length=1, choices=SAIDA_GARAGEM)

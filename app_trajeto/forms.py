@@ -1,4 +1,4 @@
-from app_trajeto.models import Sugestao
+from app_trajeto.models import Sugestao, Bairro
 from django import forms
 import string
     
@@ -13,3 +13,4 @@ class Contato(forms.ModelForm):
     class Meta:
         model = Sugestao
         fields = [ 'nome', 'email', 'sugestao']
+

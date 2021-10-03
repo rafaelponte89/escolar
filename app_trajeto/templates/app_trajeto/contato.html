@@ -2,9 +2,17 @@
 
 
 {% block content %}
+
 <div class="row">
-  <div class="col s12 m4 l2"><p></p></div> 
-   <form class="col s8 indigo lighten-5" method="POST">
+<div class="col s12">
+<div class="row">
+   <div class="col s12 center">
+      <h4 class="indigo indigo-lighter-3 orange-text z-depth-1-half"> Formulário de Sugestão </h4>
+   </div>
+</div>
+<div class="row">
+  <div class="col s12">
+   <form class="indigo lighten-5 z-depth-3" method="POST">
       {% csrf_token %}
      <div class="row">
         <div class="input-field col s12">
@@ -12,6 +20,7 @@
           <label for="nome">Nome</label>
         </div>
       </div>
+
       <div class="row">
         <div class="input-field col s12 indigo-text">
           {{ form.email }}
@@ -26,14 +35,48 @@
             <label for="textarea2">Sugestões</label>
           </div>
         </div>
+  </div>
+</div>
 
+      <div class="row">
+       <div class="col center s12">
+        <button class="btn waves-effect waves-yellow indigo" type="submit" name="action">Enviar
+          <i class="material-icons right">send</i>
+        </button>
+        </div>
       </div>
-      
-      <button class="btn waves-effect waves-yellow indigo" type="submit" name="action">Enviar
-        <i class="material-icons right">send</i>
-      </button>
     </form>
-<div class="col s12 m4 l2"><p></p></div>
+<!--<div class="col s12 m4 l2"><p></p></div> -->
 
+
+    {% if messages %}
+<div class="row">
+ <div class="col s12">
+  <ul class="messages">
+    {% for message in messages %}
+     <li id="teste" {% if message.tags %} class="{{ message.tags }} card-panel teal center white-text pulse "{% endif %}>{{ message }}</li> 
+    {% endfor %}
+
+  </ul>
+  {% endif %}
  </div>
+</div>
+</div>
+</div>
+<script>
+    setTimeout(function(){
+
+      var a = document.getElementById("teste");
+
+      a.style="display:none"
+
+
+      }, 3000);
+</script>
+
+
+
+
+
 {% endblock content %}
+
