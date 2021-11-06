@@ -1,24 +1,44 @@
-{% extends 'app_trajeto/base.html' %}
+{% extends 'app_trajeto/base_search.html' %}
 
-{% block content %}
-  <div class="row">
-   <div class="col s12">
-    <form method="GET" >
-      <div class="row">
-        <div class="col s12">
-        <div class="input-field center">
+{% block caixa %}
+         <div class="row">
+         <div class="col s12">
+         <p class="center">
           <button class="btn waves-effect waves-yellow btn-small indigo" type="submit">Pesquisar
              <i class="material-icons right">search</i>
           </button>
-              <input type="text" value= "{{ busca }}" name="search">
-          <label for="search">Pesquise</label>
-        </div>
-      </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    <div>
+          </p>
+          </div>
+          <div class="col s4">
+            <p class="center">
+              <label>
+                <input  name="search" class="red lighten-1" type="radio" value="M" />
+                <span>Manhã</span>
+              </label>
+            </p>
+            </div>
+            <div class="col s4">
+            <p class="center">
+              <label>
+                <input name="search" type="radio" value="T" />
+                <span>Tarde</span>
+              </label>
+            </p>
+            </div>
+            <div class="col s4">
+            <p class="center">
+              <label>
+                <input name="search" type="radio" value="N" />
+                <span>Noite</span>
+              </label>
+            </p>
+            </div>
+          </div>
+
+{% endblock caixa %}
+
+{% block content %}
+
      <!-- {% for item in grid %}
           <p> {{ item }}  </p>
       {% endfor %}
@@ -28,8 +48,10 @@
     <div class="col s12">
     <table class="highlight centered indigo z-depth-3">
         <thead>
+         <tr class="teal white-text"> <th> Bairro:  {{ bairro }} </th> </tr>
+
           <tr>
-              <th>Bairro</th>
+              <th>Trajeto</th>
               <th>Período</th>
               <th>Horário</th>
           </tr>
@@ -38,7 +60,7 @@
     {% for trajeto in trajetos %}
         <tbody class="teal">
           <tr>
-            <td >{{ trajeto.bairro }}</td>
+            <td> {{ trajeto.trajeto.nome_trajeto }} </td>
             <td >{% if trajeto.trajeto.saida_garagem == 'M' %} {{ 'MANHÃ' }} 
                  {% elif trajeto.trajeto.saida_garagem == 'T' %} {{ 'TARDE' }}
                  {% elif trajeto.trajeto.saida_garagem == 'N' %} {{ 'NOITE' }}

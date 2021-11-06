@@ -14,24 +14,22 @@
 </head>
 <body>
   <nav class="indigo" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'inicial' %}" class="brand-logo">Logo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src={% static 'app_trajeto/img/logo_ponto_ponto.png' %} align="center" width="48"></a>
       <ul class="right hide-on-med-and-down">
        
         <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
       
         <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
-        <li><a class="waves-effect waves-yellow bn" href="#"><span class="material-icons">apartment</span>Avalie-nos</a></li>
 
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
         <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
         <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
-        <li><a class="waves-effect waves-yellow bn" href="#"><span class="material-icons">apartment</span>Avalie-nos</a></li>
 
       </ul>
 
@@ -54,7 +52,11 @@
     </div>
   </div>
   -->
+    {% block search %}
+    
+    {% endblock %}
   
+
     {% block content %}
 
     {% endblock %}
@@ -64,14 +66,14 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Web Transpolar</h5>
+          <h5 class="white-text">No ponto em ponto</h5>
           <p class="grey-text text-lighten-4">Aqui você se sente encontrado!</p>
         </div>
       
         <div class="col l3 s12">
           <h5 class="white-text">Conecte-se!</h5>
           <ul>
-            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'trajetos' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
             <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
             <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
 
