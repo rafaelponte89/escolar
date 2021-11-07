@@ -54,7 +54,7 @@ def detail_trajeto(request,busca):
     print(str(trajetos.query))
     if procurar:
         trajetos = trajetos.filter(trajeto_id__saida_garagem__contains=procurar)
-        #print(str(trajetos.query))
+        print(str(trajetos.query))
 
     return render (request, 'app_trajeto/detail_trajetos.html',{'trajetos':trajetos,'bairro':busca})
 
@@ -65,7 +65,7 @@ def search_trajeto(request):
     if busca:
         trajetos = Trajeto_Bairro.objects.filter(bairro__nome__contains=busca).only('trajeto_id')
     # print(str(trajetos.query))
-    
+     
     return render (request, 'app_trajeto/detail_trajetos.html',{'trajetos':trajetos,'bairro':busca})
    
 

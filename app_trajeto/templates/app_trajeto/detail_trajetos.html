@@ -51,6 +51,7 @@
          <tr class="teal white-text"> <th> Bairro:  {{ bairro }} </th> </tr>
 
           <tr>
+              <th>Veículo</th>
               <th>Trajeto</th>
               <th>Período</th>
               <th>Horário</th>
@@ -60,6 +61,7 @@
     {% for trajeto in trajetos %}
         <tbody class="teal">
           <tr>
+            <td> {{ trajeto.veiculo }}
             <td> {{ trajeto.trajeto.nome_trajeto }} </td>
             <td >{% if trajeto.trajeto.saida_garagem == 'M' %} {{ 'MANHÃ' }} 
                  {% elif trajeto.trajeto.saida_garagem == 'T' %} {{ 'TARDE' }}
