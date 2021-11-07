@@ -19,13 +19,25 @@ class Bairro(models.Model):
     def __str__(self):
         return self.nome
 
+
+# Armazena tipos de transporte
+class Tipo_Transporte(models.Model):
+    
+    tipo = models.CharField(max_length=100, blank=False)
+    
+    def __str__(self):
+        return self.tipo
+
 # Armazena os veículos
 class Veiculo(models.Model):
     descricao = models.CharField(max_length=100, blank=False)
-    
+    tipo_transporte = models.ForeignKey(Tipo_Transporte, on_delete = models.CASCADE, db_column='tipo_transporte_id')
     def __str__(self):
-        return self.descricao
+        return f"{self.descricao}, {self.tipo_transporte}"
 
+
+    
+    
 # Armazena trajetos
 class Trajeto(models.Model):
    
