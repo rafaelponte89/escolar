@@ -30,7 +30,7 @@ https://www.youtube.com/watch?v=TkZ9cziYRDU
 # Tecnologias e ferramentas usadas no desenvolvimento 
 
 Web framework Django 3.2  
-Material 1.0 
+Materialize 1.0 
 SQLITE
 Python 3.8
 HTML
