@@ -1,7 +1,7 @@
 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="Conteudo">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -13,29 +13,32 @@
   <link href="{% static 'app_trajeto/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="indigo" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src={% static 'app_trajeto/img/logo_ponto_ponto.png' %} align="center" width="48"></a>
+
+  <div class="navbar-fixed">
+   <nav class="indigo">
+     <div class="nav-wrapper container">
+      <a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src={% static 'app_trajeto/img/logo_ponto_ponto.png' %} align="center" width="48"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-       
-        <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
-      
-        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
-
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
         <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
         <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
-
+        <li ><a class="btn-floating btn-large waves-effect waves-light black"  onclick="aumentarLetra()" >A+</a></li>
+        <li ><a class="btn-floating btn-large waves-effect waves-light red"  onclick="diminuirLetra()" id="decrease-font">A-</a></li>
       </ul>
-
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  </div>
+
+  <ul class="sidenav" id="mobile-demo">
+      <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+        <li><a class="btn-floating btn-large waves-effect waves-light black" onclick="aumentarLetra()" >A+</a></li>
+        <li><a class="btn-floating btn-large waves-effect waves-light red" onclick="diminuirLetra()" ">A-</a></li>
+  </ul>
 
  <!--
   <div class="section no-pad-bot" id="index-banner">
@@ -60,7 +63,7 @@
     {% block content %}
 
     {% endblock %}
-  
+
 
   <footer class="page-footer indigo">
     <div class="container">
@@ -93,6 +96,8 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{% static 'app_trajeto/js/materialize.js' %}"></script>
   <script src="{% static 'app_trajeto/js/init.js' %}"></script>
+   <script src="{% static 'app_trajeto/js/acessibilidade.js' %}"></script>
+
 
   </body>
 </html>
