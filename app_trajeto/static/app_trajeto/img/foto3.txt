@@ -1,0 +1,13 @@
+Saving file 'foto3.webp'
+File:      foto3.jpg
+Dimension: 1000 x 811
+Output:    215502 bytes Y-U-V-All-PSNR 38.34 40.65 40.91   39.01 dB
+block count:  intra4: 2984
+              intra16: 229  (-> 7.13%)
+              skipped block: 5 (0.16%)
+bytes used:  header:            439  (0.2%)
+             mode-partition:  17197  (8.0%)
+ Residuals bytes  |segment 1|segment 2|segment 3|segment 4|  total
+    macroblocks:  |      37%|      18%|      20%|      23%|    3213
+      quantizer:  |      26 |      20 |      16 |      11 |
+   filter level:  |       8 |       5 |       3 |      14 |

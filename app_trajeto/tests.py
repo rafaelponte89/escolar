@@ -5,18 +5,19 @@ from .models import Bairro
 class TemplateTest(TestCase):
 
     def test_inicial(self):
+
         response = self.client.get('/inicial')
-        self.assertTemplateUsed(response, 'app_trajeto/index.html')
+        self.assertTemplateUsed(response, 'index.html')
 
     def test_contato(self):
+
         response = self.client.get('/contato')
-        self.assertTemplateUsed(response, 'app_trajeto/contato.html')
+        self.assertTemplateUsed(response, 'contato.html')
 
     def test_bairro(self):
+
         response = self.client.get('/bairros')
-        self.assertTemplateUsed(response, 'app_trajeto/bairro.html')
-
-
+        self.assertTemplateUsed(response, 'bairro.html')
 
     def test_detail_bairro(self):
 

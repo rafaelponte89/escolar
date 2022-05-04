@@ -8,9 +8,9 @@ from . import views
 urlpatterns = [
     path("inicial",views.index,name="inicial"),            # endereco, view, nome da view
     path("quemsomos",views.quem_somos,name="quemsomos"),
-    path("contato", views.salvar_sugestao, name="contato"),
-    path("bairros",views.list_bairro, name="bairro"),
-    path("detail/<str:busca>", views.detail_trajeto, name="detail"),
-    path("trajetos",views.trajetos, name="trajetos"),
+    path("contato", views.salva_sugestoes, name="contato"),
+    path("bairros",views.lista_bairros, name="bairro"),
+    path("detail/<str:busca>", views.detalha_trajetos, name="detalha_trajetos"),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

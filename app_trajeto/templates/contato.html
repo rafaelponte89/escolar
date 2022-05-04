@@ -1,5 +1,4 @@
-{% extends 'app_trajeto/base.html' %}
-
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -46,15 +45,13 @@
         </div>
       </div>
     </form>
-<!--<div class="col s12 m4 l2"><p></p></div> -->
-
 
     {% if messages %}
 <div class="row">
  <div class="col s12">
   <ul class="messages">
     {% for message in messages %}
-     <li id="teste" {% if message.tags %} class="{{ message.tags }} card-panel teal center white-text pulse "{% endif %}>{{ message }}</li> 
+     <li id="retorno" {% if message.tags %} class="{{ message.tags }} card-panel teal center white-text pulse "{% endif %}>{{ message }}</li>
     {% endfor %}
 
   </ul>
@@ -65,12 +62,8 @@
 </div>
 <script>
     setTimeout(function(){
-
-      var a = document.getElementById("teste");
-
+      var a = document.getElementById("retorno");
       a.style="display:none"
-
-
       }, 3000);
 </script>
 

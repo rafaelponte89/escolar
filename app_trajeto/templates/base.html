@@ -1,27 +1,28 @@
 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" id="Conteudo">
-<head>
+<html lang="en" id="Conteudo" >
+<head >
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta name="description" content="Trajetos escolares"/>
   <title>Trajetos do Transporte Escolar</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{% static 'app_trajeto/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{% static 'app_trajeto/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'app_trajeto/css/materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'app_trajeto/css/meu.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body onload="configuracoes()">
 
   <div class="navbar-fixed">
    <nav class="indigo">
      <div class="nav-wrapper container">
       <a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src={% static 'app_trajeto/img/logo_ponto_ponto.png' %} align="center" width="48"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down" >
         <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}" id="trajetos"><span class="material-icons">departure_board</span>Trajetos</a></li>
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
         <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
         <li ><a class="btn-floating btn-large waves-effect waves-light black"  onclick="aumentarLetra()" >A+</a></li>
@@ -40,25 +41,13 @@
         <li><a class="btn-floating btn-large waves-effect waves-light red" onclick="diminuirLetra()" ">A-</a></li>
   </ul>
 
- <!--
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Starter Template</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-      </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-      </div>
-      <br><br>
-    </div>
-  </div>
-  -->
-    {% block search %}
-    
+    {% block pesquisa_digitacao %}
+
     {% endblock %}
-  
+
+    {% block pesquisa_periodo %}
+
+    {% endblock %}
 
     {% block content %}
 
