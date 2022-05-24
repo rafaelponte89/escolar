@@ -1,66 +1,56 @@
 
 // a criação de cookies possibilita armazenar configurações do site no navegador
 function configuracoes(){
-    document.getElementById("Conteudo").style.fontSize = getCookie("tamanhoLetra") + "%"
-}
+    document.getElementById("Conteudo").style.fontSize = pegarCookie("tamanhoLetra") + "%";
+    }
+
 
 function criarCookie(nome,valor){
     document.cookie = nome + "=" + valor;
 }
 
-
 // https://www.w3schools.com/js/js_cookies.asp
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+function pegarCookie(nome) {
+
+    if (!document.cookie.split('; ').find(row => row.startsWith(nome)))
+    {
+          criarCookie("tamanhoLetra","100");
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
+
+   const cookieValue = document.cookie
+  .split('; ')
+  .find(row => row.startsWith(nome))
+  .split('=')[1];
+
+   return cookieValue;
 }
 
+function processarTamanhoLetra(limiteFonte, operacao)
+{
+     let font = pegarCookie("tamanhoLetra");
 
-function aumentarLetra(){
-
-    let font = getCookie("tamanhoLetra");
-
-        if (font === "150"){}
+        if (font === limiteFonte){}
         else {
 
-            if (font == ""){
-                font = 100;
+            if (operacao == "+"){
+                font = (parseInt(font) + 10);
             }
-            font = (parseInt(font)+10);
+            else {
+                font = (parseInt(font) - 10);
+            }
             document.getElementById("Conteudo").style.fontSize =  font + "%";
-
         }
+
         criarCookie("tamanhoLetra",font);
 
+}
 
+function aumentarLetra(){
+    processarTamanhoLetra("150","+")
 }
 
 function diminuirLetra(){
-
-    let font = getCookie("tamanhoLetra");
-
-        if (font === "80"){
-
-        }
-        else {
-
-            if (font == ""){
-                font = 100;
-            }
-            font = (parseInt(font)-10);
-            document.getElementById("Conteudo").style.fontSize =  font + "%";
-
-        }
-        criarCookie("tamanhoLetra",font);
+    processarTamanhoLetra("80","-")
 }
+

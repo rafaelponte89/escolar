@@ -2,7 +2,7 @@
 # Título: No ponto em ponto
 # Curso: Engenharia da Computação - Univesp
 
-O usuário entra com bairro desejado e identifica os possíveis pontos.
+O usuário entra com o bairro desejado e identifica os possíveis pontos.
 
 :heavy_check_mark: Ferramentas e tecnologias utilizadas no Projeto I
 
@@ -16,6 +16,7 @@ O usuário entra com bairro desejado e identifica os possíveis pontos.
 * Microsoft Visual Studio Code
 * DbBrowser para acesso à base de dados 
 * Heroku para hospedagem
+* SO (Windows 10)
  
 ## Integrantes do projeto I
 
@@ -33,6 +34,9 @@ O usuário entra com bairro desejado e identifica os possíveis pontos.
 ## Vídeo de Apresentação do Projeto I
 * https://www.youtube.com/watch?v=TkZ9cziYRDU
 
+## Projeto I
+![construindo escada](no_ponto_em_ponto_i.gif)
+
 ## Integrantes do projeto II
 
 * :man: Bruno
@@ -44,6 +48,30 @@ O usuário entra com bairro desejado e identifica os possíveis pontos.
 * :man: Rafael Ponte Cassemiro (evolução, testes)
 * :man: Rodrigo
 
+:heavy_check_mark: Ferramentas e tecnologias utilizadas no Projeto I
+
+* Web framework Django 3.2.13  
+* Materialize 1.0 
+* PostgreSQL 13.3
+* Virtualenv 20.7.0
+* Python 3.8.10
+* HTML
+* CSS
+* Javascript
+* PyCharm Community Edition
+* Dbeaver para acesso à base de dados 
+* Heroku para hospedagem
+* Bourn Again Shell (bash)
+* SO (Ubuntu 20.04)
+
+## Projeto II
+
+## :new: Projeto II
+* Acessibiliadade (letras aumentam e diminuem)
+* Cookies para armazenar o tamanho da fonte
+* Usabilidade (barra de navegação fixa)
+* Classe de testes (teste funcional)
+
 ## Resumo Projeto
 
 * Este trabalho consiste em propor uma solução para transporte público escolar no município de Orlândia/SP, tendo em vista que os estudantes, na busca por seus respectivos pontos de embarque para suas devidas escolas, não conseguem ter esta informação de maneira facilitada, com possíveis prejuízos à frequência nas aulas. Como o direito à educação é dever do estado e frente a esta dificuldade de acesso à informação, foi decido criar um projeto com
@@ -54,16 +82,6 @@ itinerário da rota deste serviço.
 
 - `Funcionalidade`: indicar pontos de ônibus.
 
-## Projeto I
-![construindo escada](no_ponto_em_ponto_i.gif)
-
-## Projeto II
-
-
-## :new: Projeto II
-* Acessibiliadade (letras aumentam e diminuem)
-* Usabilidade (barra de navegação fixa)
-* Classe de testes (teste funcional)
 
 # :arrow_forward: Execução do Projeto
 

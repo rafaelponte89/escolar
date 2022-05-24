@@ -1,8 +1,17 @@
-
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" id="Conteudo" >
 <head >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXCHG4KZQK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JXCHG4KZQK');
+    </script>
+
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <meta name="description" content="Trajetos escolares"/>
@@ -18,15 +27,15 @@
   <div class="navbar-fixed">
    <nav class="indigo">
      <div class="nav-wrapper container">
-      <a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src={% static 'app_trajeto/img/logo_ponto_ponto.png' %} align="center" width="48"></a>
+      <a id="logo-container" href="{% url 'inicial' %}" class="brand-logo"><img src="{% static 'app_trajeto/img/logo_ponto_ponto.png' %}" align="center" width="48"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down" >
-        <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}"><span class="material-icons">home</span>Inicial</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}" id="trajetos"><span class="material-icons">departure_board</span>Trajetos</a></li>
-        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
-        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
-        <li ><a class="btn-floating btn-large waves-effect waves-light black"  onclick="aumentarLetra()" >A+</a></li>
-        <li ><a class="btn-floating btn-large waves-effect waves-light red"  onclick="diminuirLetra()" id="decrease-font">A-</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'inicial' %}" alt="inicial"><span class="material-icons">home</span>Inicial</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'bairro' %}" alt="trajetos" id="trajetos" tabindex="20"><span class="material-icons">departure_board</span>Trajetos</a></li>
+        <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}" tabindex="21"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+        <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}" tabindex="22"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+        <li><a class="btn-floating btn-large waves-effect waves-light black"  onclick="aumentarLetra()" tabindex="23">A+</a></li>
+        <li><a class="btn-floating btn-large waves-effect waves-light red"  onclick="diminuirLetra()" id="decrease-font" tabindex="24">A-</a></li>
       </ul>
     </div>
   </nav>
@@ -38,9 +47,9 @@
         <li><a class="waves-effect waves-yellow bnt" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
         <li><a class="waves-effect waves-yellow bn" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
         <li><a class="btn-floating btn-large waves-effect waves-light black" onclick="aumentarLetra()" >A+</a></li>
-        <li><a class="btn-floating btn-large waves-effect waves-light red" onclick="diminuirLetra()" ">A-</a></li>
+        <li><a class="btn-floating btn-large waves-effect waves-light red" onclick="diminuirLetra()" >A-</a></li>
   </ul>
-
+  <main>
     {% block pesquisa_digitacao %}
 
     {% endblock %}
@@ -52,7 +61,7 @@
     {% block content %}
 
     {% endblock %}
-
+  </main>
 
   <footer class="page-footer indigo">
     <div class="container">
@@ -65,9 +74,9 @@
         <div class="col l3 s12">
           <h5 class="white-text">Conecte-se!</h5>
           <ul>
-            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'bairro' %}"><span class="material-icons">departure_board</span>Trajetos</a></li>
-            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'contato' %}"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
-            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'quemsomos' %}"><span class="material-icons">self_improvement</span>Quem somos</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'bairro' %}" tabindex="30"><span class="material-icons">departure_board</span>Trajetos</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'contato' %}" tabindex="31"><span class="material-icons">question_answer</span>Fale Conosco</a></li>
+            <li><a class="waves-effect waves-dark bnt white-text" href="{% url 'quemsomos' %}" tabindex="32"><span class="material-icons">self_improvement</span>Quem somos</a></li>
 
           </ul>
         </div>
@@ -85,7 +94,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{% static 'app_trajeto/js/materialize.js' %}"></script>
   <script src="{% static 'app_trajeto/js/init.js' %}"></script>
-   <script src="{% static 'app_trajeto/js/acessibilidade.js' %}"></script>
+   <script src="{% static 'app_trajeto/js/acessibilidade_1.js' %}"></script>
 
 
   </body>

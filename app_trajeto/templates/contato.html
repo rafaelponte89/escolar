@@ -39,7 +39,7 @@
 
       <div class="row">
        <div class="col center s12">
-        <button class="btn waves-effect waves-yellow indigo" type="submit" name="action">Enviar
+        <button class="btn waves-effect waves-yellow indigo" type="submit" name="action" tabindex="4">Enviar
           <i class="material-icons right">send</i>
         </button>
         </div>
@@ -53,17 +53,16 @@
     {% for message in messages %}
      <li id="retorno" {% if message.tags %} class="{{ message.tags }} card-panel teal center white-text pulse "{% endif %}>{{ message }}</li>
     {% endfor %}
-
   </ul>
   {% endif %}
+
  </div>
 </div>
 </div>
 </div>
 <script>
     setTimeout(function(){
-      var a = document.getElementById("retorno");
-      a.style="display:none"
+      retorno.style.display="none";
       }, 3000);
 </script>
 
