@@ -12,5 +12,8 @@ urlpatterns = [
     path("bairros",views.lista_bairros, name="bairro"),
     path("detail/<str:busca>", views.detalha_trajetos, name="detalha_trajetos"),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # -------------EM DESENVOLVIMENTO --------------
+    path("mapa/<str:bairro>", views.pontos_interesse, name="pontos_interesse"),
+
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -4,3 +4,11 @@ db.sqlite3
 venv/
 *.log
 implantacao.sh
+db.sqlite3
+execucao.sh
+.vscode/
+db.sqlite3
+execucao.sh
+./execucao.sh
+execucao.sh implantacao.sh
+db.sqlite3

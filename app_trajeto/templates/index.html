@@ -1,54 +1,54 @@
 {% extends "base.html" %}
- {% load static %}
+{% load static %}
 
 {% block content %}
 
 
-  <div class="slider">
-    <ul class="slides">
-      <li>       
-        <img src="{% static 'app_trajeto/img/foto1.webp' %}"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Conectando você...</h3>
-          <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
-        </div>
-      </li>
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="{% static 'app_trajeto/img/foto1.webp' %}" alt="céu montanha rodovia placa"> <!-- random image -->
+      <div class="caption center-align">
+        <h3>Conectando você...</h3>
+        <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
+      </div>
+    </li>
 
-      <li>
-        <img src="{% static 'app_trajeto/img/foto2.webp' %}"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>... de um polo a outro...</h3>
-          <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
-        </div>
-      </li>
+    <li>
+      <img src="{% static 'app_trajeto/img/foto2.webp' %}" alt="rodovia árvoes laterais"> <!-- random image -->
+      <div class="caption left-align">
+        <h3>... de um polo a outro...</h3>
+        <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
+      </div>
+    </li>
 
-      <li>
-        <img src="{% static 'app_trajeto/img/foto3.webp' %}"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>.... simplesmente tornando sua vida mais cômoda!</h3>
-          <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
-        </div>
-      </li>
+    <li>
+      <img src="{% static 'app_trajeto/img/foto3.webp' %}" alt="deserto rodovia"> <!-- random image -->
+      <div class="caption right-align">
+        <h3>.... simplesmente tornando sua vida mais cômoda!</h3>
+        <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
+      </div>
+    </li>
 
-      <li>
-        <img src="{% static 'app_trajeto/img/foto4.webp' %}"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Você no lugar certo é a nossa satisfação!</h3>
-          <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
-        </div>
-      </li>
+    <li>
+      <img src="{% static 'app_trajeto/img/foto4.webp' %}" alt="horizonte rodovia árvores carros longe">
+      <!-- random image -->
+      <div class="caption center-align">
+        <h3>Você no lugar certo é a nossa satisfação!</h3>
+        <h5 class="light grey-text text-lighten-3">Encontre seu caminho!</h5>
+      </div>
+    </li>
 
-    </ul>
-  </div>
+  </ul>
+</div>
 
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.slider');
     var instances = M.Slider.init(elems);
   });
 </script>
-   
-{% endblock content %}
 
+{% endblock content %}

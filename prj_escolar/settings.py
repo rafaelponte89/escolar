@@ -15,6 +15,8 @@ import os
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 
+import app_trajeto
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_trajeto'
+    'app_trajeto',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +86,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', 'escolar'),
-        'USER': os.environ.get('DB_USER','**'),
-        'PASSWORD': os.environ.get('DB_PASS','**'),
+        'USER': os.environ.get('DB_USER','****'),
+        'PASSWORD': os.environ.get('DB_PASS','***'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
-    }
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    # }
 }
 
 
@@ -136,7 +142,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-# Configure Django App for Heroku.
+Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())

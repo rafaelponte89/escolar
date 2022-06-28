@@ -1,4 +1,7 @@
-from app_trajeto.models import Bairro, Sugestao, Veiculo,Trajeto, Trajeto_Bairro, Tipo_Transporte
+from app_trajeto.models import Bairro, Ponto, Sugestao, \
+    Veiculo,Trajeto, Trajeto_Bairro, Tipo_Transporte, \
+        Ponto    
+
 from django.contrib import admin
 
 # Register your models here.
@@ -21,7 +24,10 @@ class Bairro(admin.ModelAdmin):
     search_fields = ['nome']
 
 
+
+    
 admin.site.register(Veiculo)
 admin.site.register(Trajeto_Bairro)
 admin.site.register(Trajeto)
 admin.site.register(Tipo_Transporte)
+admin.site.register(Ponto)

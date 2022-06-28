@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app_trajeto/css/mapa.css' %}">
+{% endblock %}
+
+{% block script %}
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+<style type="text/css">
+    label {
+        color: black;
+        font-size: 15px;
+    }
+    h4 {
+        text-align: center;
+        font-size: 150%;
+    }
+    
+    .small-screen {
+      display: inline-block;
+      left: 25%;
+      top: 25%;
+    }
+
+    textarea{
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+        border-bottom: 1px solid gray;
+        margin-top: 15px;
+        height: 100px;
+    }
+     textarea:focus{
+        border-bottom: 2px solid green;
+    }
+    input {
+      text-align: center;
+    }
+   
+</style>
+
+    <h4 >Bairro: <span style="color:green">{{ bairro }}</span></h4>
+
+    <!--Janela Modal-->
+ <div id="cadCoord" class="modal" style="border-radius: 10px;">
+     <h4>Cadastro do Ponto</h4>
+   <form id="coordenadas" class="indigo lighten-5 z-depth-3" method="POST">
+
+      {% csrf_token %}
+
+     <div class="center">
+      
+        <div class="small-screen">
+          <label for="latitude">Latitude</label>
+          {{ form.lat }}
+
+        </div>
+        <div class="small-screen">
+            <label for="longitude">Longitude</label>
+          {{ form.lon }}
+
+          <span class="helper-text" data-error="corrigir" data-success="Certo"></span>
+        </div>
+
+      </div>
+
+       <div class="center" >
+        <div class="small-screen">
+            <label for="hora">Hora</label>
+          {{ form.hr }}
+
+        </div>
+        <div class="small-screen">
+            <label for="minuto">Minutos</label>
+          {{ form.min }}
+          <!-- <span class="helper-text" data-error="corrigir" data-success="Certo"></span> -->
+        </div>
+      </div>
+
+       <div class="center">
+            <div class="small-screen">
+                <label for="descricao">Descricao</label>
+                {{ form.des }}
+            </div>
+       </div>
+    </form>
+
+
+      <div class="modal-footer">
+          <div class="row">
+
+              <div class="col s5 small-screen">
+                    <button class="btn waves-effect waves-yellow indigo" id="deletar">Deletar
+                        <i class="material-icons right">send</i>
+                    </button>
+              </div>
+
+               <div class="col s5 small-screen">
+                    <button class="btn waves-effect waves-yellow indigo" id="gravar" onclick="gravarPonto()">Gravar
+                        <i class="material-icons right">send</i>
+                    </button>
+               </div>
+              
+         </div>
+
+      </div>
+  
+  </div>  
+
+ 
+
+<div id="coord">{{ mapa }}</div>
+
+<div id="map" ></div>
+
+
+{% endblock content %}
+
+    {% block script_footer %}
+        <script src="{% static 'app_trajeto/js/mapa.js' %}"></script>
+
+    {% endblock %}
+
+

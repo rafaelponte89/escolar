@@ -1,9 +1,9 @@
 from django.template import context
-from app_trajeto.models import Bairro, Trajeto_Bairro
+from app_trajeto.models import Bairro, Trajeto_Bairro, Ponto
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest, QueryDict
 from django.core.paginator import Paginator
-from . forms import Contato
+from . forms import Contato, formPonto
 from django.contrib import messages
 # Create your views here.
 
@@ -17,11 +17,11 @@ def index(request):
 # ao cliar na opção trajetos uma lista de bairros é exibida
 # para o usuário
 def lista_bairros(request):
-    bairros = Bairro.objects.order_by("nome").all().values('nome')
+    bairros = Bairro.objects.order_by("nome").all()#.values('nome')
 
     busca = request.GET.get('search', '')
     if busca:
-        bairros = bairros.filter(nome__icontains=busca).values('nome')
+        bairros = bairros.filter(nome__icontains=busca)#.values('nome')
 
     return render(request, 'bairro.html', {'bairros': bairros, 'busca': busca})
 
@@ -50,9 +50,11 @@ def salva_sugestoes(request):
         form = Contato(request.POST)
 
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Sucesso')
-            return redirect('contato')
+            if(form.save()):
+                messages.success(request, 'Sugestão Salva com Sucesso!')
+
+                return redirect('contato')  
+
     else:
         form = Contato(request.POST)
     return render(request, "contato.html", {"form": form})
@@ -61,8 +63,46 @@ def salva_sugestoes(request):
 # ainda querendo explorar mais sobre o site o usuário acessa a seção quem somos
 # para saber sobre a história da empresa e após terminar a leitra fecha a página
 def quem_somos(request):
-
     return render(request, "quemsomos.html")
+
+def pontos_interesse(request,bairro):
+    
+
+    if request.method == "POST":  # se o método é Post
+        form = formPonto(request.POST)  # cria um objeto do tipo Contato (forms.py)
+        if form.is_valid():  # se o formulário é válido, todos os campos requeridos estão de acordo
+           
+            form.save()  # salva informações
+            messages.success(request,'Sucesso') # menssagem de sucesso
+            
+    else:
+        form = formPonto(request.POST)
+
+
+    #pontos = Ponto.objects.filter(bairro=bairro).only('id')
+    pontos = Ponto.objects.all()
+    print(pontos)
+
+    estrutura=''
+
+    for p in pontos:
+        estrutura = estrutura + '{'+"\"trajeto\""+':\"'+ str(p.des) +'\",' \
+                   +"\"lat\""+':\"'+ str(p.lat)+'\",' \
+                   +"\"long\""+':\"'+ str(p.lon)+'\"},'
+
+    estrutura = estrutura[:len(estrutura)-1]
+    varios='{"pontos":[' + estrutura + ']}'
+
+    print(varios)
+
+    return render(request, 'mapa.html', {'mapa':varios,'form':form, 'bairro':bairro})
+
+
+def salvar_opiniao(request):
+
+    return render(request)
+
+
           
 
 

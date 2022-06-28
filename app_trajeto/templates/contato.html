@@ -1,74 +1,104 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
 
-<div class="row">
-<div class="col s12">
-<div class="row">
-   <div class="col s12 center">
-      <h4 class="amber lighten-1 indigo-text z-depth-1-half"> Formulário de Sugestão </h4>
-   </div>
-</div>
+<style type="text/css">
+  label {
+    color: black;
+    font-size: 15px;
+  }
+
+  form,
+  h4 {
+    border-radius: 10px;
+  }
+
+  textarea {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    border-bottom: 1px solid gray;
+    margin-top: 15px;
+    height: 100px;
+  }
+
+  textarea:focus {
+    border-bottom: 2px solid rgb(76, 175, 80);
+    transition: border 180ms;
+  }
+</style>
+
+
+{% if messages %}
 <div class="row">
   <div class="col s12">
-   <form class="indigo lighten-5 z-depth-3" method="POST">
-      {% csrf_token %}
-     <div class="row">
-        <div class="input-field col s12">
-          {{ form.nome }}
-          <label for="nome">Nome</label>
-        </div>
-      </div>
+    <ul class="messages" id="mensagemSugestao" class="modal">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }} card-panel teal 
+   center white-text pulse" {% endif %} style="font-size:20px;">{{ message }}</li>
+      {% endfor %}
 
-      <div class="row">
-        <div class="input-field col s12 indigo-text">
-          {{ form.email }}
-          <label for="email">Email</label>
-          <span class="helper-text" data-error="corrigir" data-success="Certo"></span>
-        </div>
-      </div>  
-     
-       <div class="row">
-          <div class="input-field col s12">
-            {{ form.sugestao }}
-            <label for="textarea2">Sugestões</label>
+    </ul>
+    {% endif %}
+
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="col s12 center">
+            <h4 class="amber lighten-1 indigo-text z-depth-1-half"> Formulário de Sugestão </h4>
           </div>
         </div>
-  </div>
-</div>
+        <div class="row">
+          <div class="col s12">
+            <form id="formSugestao" class="indigo lighten-5 z-depth-3" method="POST">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col s12">
+                  <label for="nome">Nome</label>
+                  {{ form.nome }}
+                </div>
+              </div>
 
-      <div class="row">
-       <div class="col center s12">
-        <button class="btn waves-effect waves-yellow indigo" type="submit" name="action" tabindex="4">Enviar
-          <i class="material-icons right">send</i>
-        </button>
+              <div class="row">
+                <div class="col s12 indigo-text">
+                  <label for="email">Email</label>
+
+                  {{ form.email }}
+                  <span class="helper-text" data-error="corrigir" data-success="Certo"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s12">
+                  <label for="sugestao">Sugestões</label>
+                  {{ form.sugestao }}
+
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+
+
+        <div class="row">
+          <div class="col center s12">
+            <button class="btn waves-effect waves-yellow indigo modal-trigger" id="gravarSugestao" tabindex="4">Enviar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+
+
       </div>
-    </form>
-
-    {% if messages %}
-<div class="row">
- <div class="col s12">
-  <ul class="messages">
-    {% for message in messages %}
-     <li id="retorno" {% if message.tags %} class="{{ message.tags }} card-panel teal center white-text pulse "{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-
- </div>
-</div>
-</div>
-</div>
-<script>
-    setTimeout(function(){
-      retorno.style.display="none";
-      }, 3000);
-</script>
+    </div>
 
 
 
 
+    {% endblock content %}
 
-{% endblock content %}
+    {% block script_footer %}
+    <script src="{% static 'app_trajeto/js/contato.js' %}"></script>
 
+    {% endblock %}

@@ -36,8 +36,6 @@ class Veiculo(models.Model):
         return f"{self.descricao}, {self.tipo_transporte}"
 
 
-    
-    
 # Armazena trajetos
 class Trajeto(models.Model):
    
@@ -64,4 +62,18 @@ class Trajeto_Bairro(models.Model):
     
     def __str__(self):
         return f'{self.bairro}, {self.trajeto.saida_garagem}'
+
+#----------------------EM DESENVOLVIMENTO---------------
+class Ponto(models.Model):
+    lat = models.FloatField(blank=False, null=False);
+    lon = models.FloatField(blank=False, null=False)
+    des = models.CharField(max_length=150,blank=False, null=False)
+    hr = models.CharField(max_length=2, blank=False, null=False)
+    mn = models.CharField(max_length=2, blank=False, null=False)
     
+
+    def __str__(self):
+        return f"{self.lat},{self.lon},{self.des},{self.hr},{self.mn}"
+
+    class Meta:
+        unique_together = ('lat', 'lon',)
