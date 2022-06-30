@@ -39,7 +39,7 @@ class TestUser(unittest.TestCase):
         celulas = tabela.find_elements(By.TAG_NAME,'td')
         self.assertIn('Aroeira', [ celula.text for celula in celulas])
         
-        Bairro.objects.count()
+        # Bairro.objects.count()
 
        
         # count_bairros = bairros.objects.count()

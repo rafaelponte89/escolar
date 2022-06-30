@@ -41,18 +41,18 @@ class formPonto(forms.ModelForm):
 
     des = forms.CharField(widget=forms.Textarea(),max_length=150, required=True)
     hr = forms.CharField(max_length=2, required=True)
-    min = forms.CharField(max_length=2, required=True)
+    mn = forms.CharField(max_length=2, required=True)
     
     # atribui propriedades à página html em sua geração, no caso aquelas propriedades recebem as respectivas classes css
     lat.widget.attrs.update({'id': 'latitude','readonly':'true'})
     lon.widget.attrs.update({'id': 'longitude','readonly':'true'})
     des.widget.attrs.update({'class': 'validate', 'tabindex': 1})
     hr.widget.attrs.update({'class': 'validate', 'tabindex': 2})
-    min.widget.attrs.update({'class': 'validate', 'tabindex': 3})
+    mn.widget.attrs.update({'id':'id_min','class': 'validate', 'tabindex': 3})
     
    
 
     class Meta:
         model = Ponto
-        fields = ['lat', 'lon', 'des','hr','min',]
+        fields = ['lat', 'lon', 'des','hr','mn',]
 

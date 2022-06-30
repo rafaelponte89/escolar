@@ -88,7 +88,10 @@ def pontos_interesse(request,bairro):
     for p in pontos:
         estrutura = estrutura + '{'+"\"trajeto\""+':\"'+ str(p.des) +'\",' \
                    +"\"lat\""+':\"'+ str(p.lat)+'\",' \
-                   +"\"long\""+':\"'+ str(p.lon)+'\"},'
+                   +"\"long\""+':\"'+ str(p.lon)+ '\",' \
+                   +"\"hr\""+':\"'+ str(p.hr)+ '\",' \
+                   +"\"min\""+':\"'+ str(p.mn)+ '\"},' \
+                    
 
     estrutura = estrutura[:len(estrutura)-1]
     varios='{"pontos":[' + estrutura + ']}'

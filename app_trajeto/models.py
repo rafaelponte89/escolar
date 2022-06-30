@@ -65,7 +65,7 @@ class Trajeto_Bairro(models.Model):
 
 #----------------------EM DESENVOLVIMENTO---------------
 class Ponto(models.Model):
-    lat = models.FloatField(blank=False, null=False);
+    lat = models.FloatField(blank=False, null=False)
     lon = models.FloatField(blank=False, null=False)
     des = models.CharField(max_length=150,blank=False, null=False)
     hr = models.CharField(max_length=2, blank=False, null=False)

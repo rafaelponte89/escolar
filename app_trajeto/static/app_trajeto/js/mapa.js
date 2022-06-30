@@ -106,7 +106,8 @@ function carregaPontos(){
             for (let i in obj_json.pontos){
                L.marker([parseFloat(obj_json.pontos[i].lat), parseFloat(obj_json.pontos[i].long)],{fillColor:'green'})
                .addTo(mapao)
-               .bindPopup(obj_json.pontos[i].trajeto.toString());
+               .bindPopup(obj_json.pontos[i].trajeto + '\n' + 
+               obj_json.pontos[i].hr + ':' + obj_json.pontos[i].min);
                //.openPopup();
             }
         }
